@@ -1,16 +1,16 @@
 
 // kilomiter to miter conversion Function
 
-function kilomiterToMiter(x){
+function kilomiterToMeter(x){
     var miter=x*1000;
- return miter;
+    return miter;
 }
 
-var output=kilomiterToMiter(5);
+var output=kilomiterToMeter(5);
 console.log(output);
 
 
-// budget Calculator Function
+// // budget Calculator Function
 function budgetCalculator(watch, phone, laptop){
      
      var watch=watch*50;
@@ -20,29 +20,39 @@ function budgetCalculator(watch, phone, laptop){
      return totalBudget; 
 }
 
-var output=budgetCalculator(1,1,1);
+var output=budgetCalculator(4,1,2);
    console.log(output);
 
-// Hotel Cost Calcolation Function
 
 
-function hotelCost(day){
-      if(day<=10){
-          var totalCost=day*100;
-      }else if(day<=20){
-          var totalCost=day*80;
-      }else{
-          var totalCost=day*50;
-      }
 
-      return totalCost;
-
+// Hotel Cost Function Start //
+function hotelCost(day) {
+    var cost = 0;
+    if (day <= 10) {
+        cost = day * 100;
+    } else if (day <= 20) {
+        var firstPart = 10 * 100;
+        var remaining = day - 10;
+        var secondPart = remaining * 80;
+        cost = firstPart + secondPart;
+    } else {
+        var firstPart = 10 * 100;
+        var secondPart = 10 * 80;
+        var remaining = day - 20;
+        var thirdPart = remaining * 50;
+        cost = firstPart + secondPart + thirdPart;
+    }
+    return cost;
 }
+var totalCost = hotelCost(25);
+  console.log(totalCost);
 
-// megaFriend Function
+
+//megaFriend Function
 function megaFriend(arr) {
-  let word = "";
-  for (let i = 0; i < arr.length; i++) {
+  var word = "";
+  for (var i = 0; i < arr.length; i++) {
     if (word.length < arr[i].length) {
       word = arr[i];
     }
@@ -50,6 +60,6 @@ function megaFriend(arr) {
   return word;
 }
 
-var output=megaFriend(['boop', 'bloomburg', 'hello','sdklgfasjldgjsdklgjsdgkljd'])
+var output=megaFriend(['boop', 'bloomburg', 'hello','AnwarHossain'])
 console.log(output);
 
